@@ -22,6 +22,9 @@ export function AppLauncher() {
 
   return (
     <>
+      {/* Permanent pulsing ring behind the button, drawing the eye to it
+          on every page, not just the first visit. */}
+      <span className="pointer-events-none fixed right-6 top-16 z-30 h-12 w-12 animate-ping rounded-full bg-accent opacity-75" />
       {/* Fixed to the upper-right corner, rendered outside the topbar (its
           backdrop-blur creates a containing block that breaks position:fixed
           descendants) — always floats clear of the navbar and page content. */}
