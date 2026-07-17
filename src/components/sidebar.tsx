@@ -2,7 +2,17 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { LayoutDashboard, Mail, MessageSquare, FileText, Plug, LogOut, Network, SlidersHorizontal } from "lucide-react";
+import {
+  LayoutDashboard,
+  Mail,
+  MessageSquare,
+  FileText,
+  Plug,
+  LogOut,
+  Network,
+  SlidersHorizontal,
+  ShieldCheck,
+} from "lucide-react";
 import { GstLogo } from "@/components/gst-logo";
 import { useAuth } from "@/store/auth";
 import { cn } from "@/lib/utils";
@@ -10,6 +20,7 @@ import { cn } from "@/lib/utils";
 const nav = [
   { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { href: "/services", label: "Services", icon: Network },
+  { href: "/access", label: "App Access", icon: ShieldCheck },
   { href: "/smtp", label: "SMTP", icon: Mail },
   { href: "/sms", label: "SMS Gateway", icon: MessageSquare },
   { href: "/templates", label: "Email Templates", icon: FileText },
@@ -17,16 +28,16 @@ const nav = [
   { href: "/settings", label: "Service Settings", icon: SlidersHorizontal },
 ];
 
-export function Sidebar() {
+export function Sidebar({ onNavigate }: { onNavigate?: () => void }) {
   const pathname = usePathname();
   const user = useAuth((state) => state.user);
   const logout = useAuth((state) => state.logout);
 
   return (
     <aside className="flex h-full w-64 flex-col bg-sidebar text-sidebar-foreground">
-      <div className="flex items-center gap-3 border-b border-sidebar-border px-5 py-4">
+      <div className="flex items-center gap-2 border-b border-sidebar-border px-5 py-4">
         <GstLogo className="h-10 w-10" />
-        <div className="min-w-0">
+        <div className="min-w-0 flex-1">
           <p className="truncate text-sm font-bold leading-tight">GST · Configuration</p>
           <p className="truncate text-[11px] text-sidebar-foreground/60">Admin console</p>
         </div>
@@ -40,6 +51,7 @@ export function Sidebar() {
               <li key={item.href}>
                 <Link
                   href={item.href}
+                  onClick={onNavigate}
                   className={cn(
                     "flex items-center gap-2.5 rounded-md px-3 py-2 text-sm font-medium transition-colors",
                     active
