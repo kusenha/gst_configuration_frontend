@@ -14,6 +14,28 @@ export interface AuthUser {
   firstName?: string;
   lastName?: string;
   mustChangePassword?: boolean;
+  services?: string[];
+}
+
+export interface AppLauncherEntry {
+  id: number;
+  name: string;
+  displayName: string;
+  description: string;
+  frontendUrl: string;
+  icon: string;
+  color: string;
+  hasAccess: boolean;
+}
+
+export interface DirectoryUser {
+  id: string;
+  checkNumber: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  role: Role;
+  services?: string[];
 }
 
 export interface SmtpConfig {
