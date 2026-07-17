@@ -8,6 +8,7 @@ import { useAuth } from "@/store/auth";
 import { useApps } from "@/store/apps";
 import { useMounted } from "@/hooks/use-mounted";
 import { AppAccessDenied } from "@/components/app-access-denied";
+import { AppLauncher } from "@/components/app-launcher";
 import { EDA_LOGIN_URL } from "@/lib/api";
 
 const SESSION_POLL_MS = 45000;
@@ -92,6 +93,10 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
         <Topbar />
         <main className="flex-1 p-4 sm:p-6 lg:p-8">{children}</main>
       </div>
+      {/* Rendered here, not inside Topbar: the header's backdrop-blur
+          establishes a containing block for position:fixed descendants,
+          which broke this button's viewport-relative positioning. */}
+      <AppLauncher />
       <Toaster richColors position="top-right" />
     </div>
   );
