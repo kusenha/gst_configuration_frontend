@@ -10,6 +10,7 @@ import {
   Plug,
   LogOut,
   Network,
+  Server,
   SlidersHorizontal,
   ShieldCheck,
 } from "lucide-react";
@@ -19,6 +20,7 @@ import { cn } from "@/lib/utils";
 
 const nav = [
   { href: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
+  { href: "/infrastructure", label: "Infrastructure", icon: Server },
   { href: "/services", label: "Services", icon: Network },
   { href: "/access", label: "App Access", icon: ShieldCheck },
   { href: "/smtp", label: "SMTP", icon: Mail },

@@ -106,6 +106,14 @@ export interface EmailTemplate {
   updatedBy: string;
 }
 
+export interface DockerService {
+  key: string;
+  containerName: string;
+  status: "running" | "exited" | "paused" | "restarting" | "created" | "missing" | string;
+  startedAt: string | null;
+  shortId: string | null;
+}
+
 export interface ExternalIntegration {
   id: number;
   service: string;
