@@ -114,6 +114,37 @@ export interface DockerService {
   shortId: string | null;
 }
 
+export interface EmployeeImportRow {
+  id: number;
+  rowNumber: number;
+  checkNumber: string;
+  firstName: string;
+  lastName: string;
+  email: string;
+  status: "pending" | "created" | "failed";
+  errorMessage: string;
+  emailSent: boolean;
+}
+
+export interface EmployeeImportSkippedRow {
+  rowNumber: number;
+  error: string;
+}
+
+export interface EmployeeImportBatch {
+  id: string;
+  fileName: string;
+  createdBy: string;
+  totalRows: number;
+  createdRows: number;
+  failedRows: number;
+  status: "processing" | "completed";
+  createdAt: string;
+  completedAt: string | null;
+  rows: EmployeeImportRow[];
+  skippedRows?: EmployeeImportSkippedRow[];
+}
+
 export interface ExternalIntegration {
   id: number;
   service: string;

@@ -13,6 +13,7 @@ import {
   Server,
   SlidersHorizontal,
   ShieldCheck,
+  UploadCloud,
 } from "lucide-react";
 import { GstLogo } from "@/components/gst-logo";
 import { useAuth } from "@/store/auth";
@@ -23,6 +24,7 @@ const nav = [
   { href: "/infrastructure", label: "Infrastructure", icon: Server },
   { href: "/services", label: "Services", icon: Network },
   { href: "/access", label: "App Access", icon: ShieldCheck },
+  { href: "/employees", label: "Employee Import", icon: UploadCloud },
   { href: "/smtp", label: "SMTP", icon: Mail },
   { href: "/sms", label: "SMS Gateway", icon: MessageSquare },
   { href: "/templates", label: "Email Templates", icon: FileText },
