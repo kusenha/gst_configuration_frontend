@@ -7,6 +7,7 @@ import { LogOut, Menu, Search, User, X } from "lucide-react";
 import { useAuth } from "@/store/auth";
 import { Sidebar } from "@/components/sidebar";
 import { Input } from "@/components/ui/input";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { EDA_LOGIN_URL } from "@/lib/api";
 
 const ROLE_LABELS: Record<string, string> = {
@@ -96,6 +97,8 @@ export function Topbar() {
         <Search className="absolute left-2.5 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
         <Input placeholder="Search..." className="h-9 w-64 pl-8" />
       </div>
+
+      <ThemeToggle />
 
       <div className="relative" ref={accountRef}>
         <button
